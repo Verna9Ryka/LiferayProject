@@ -1,4 +1,0 @@
-dependencies {
-	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
-	compile project(':modules:backend-developer:osgi-basic:components-and-services-2:clock-api')
-}
