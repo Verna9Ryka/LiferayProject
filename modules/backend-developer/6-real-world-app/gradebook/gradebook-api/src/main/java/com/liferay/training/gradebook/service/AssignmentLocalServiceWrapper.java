@@ -14,6 +14,7 @@
 
 package com.liferay.training.gradebook.service;
 
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.service.ServiceWrapper;
 
 /**
@@ -47,6 +48,18 @@ public class AssignmentLocalServiceWrapper
 		com.liferay.training.gradebook.model.Assignment assignment) {
 
 		return _assignmentLocalService.addAssignment(assignment);
+	}
+
+	@Override
+	public com.liferay.training.gradebook.model.Assignment addAssignment(
+			long groupId, java.util.Map<java.util.Locale, String> titleMap,
+			java.util.Map<java.util.Locale, String> descriptionMap,
+			java.util.Date dueDate,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assignmentLocalService.addAssignment(
+			groupId, titleMap, descriptionMap, dueDate, serviceContext);
 	}
 
 	/**
@@ -278,6 +291,45 @@ public class AssignmentLocalServiceWrapper
 		return _assignmentLocalService.getAssignments(start, end);
 	}
 
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByGroupId(long groupId) {
+
+		return _assignmentLocalService.getAssignmentsByGroupId(groupId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByGroupId(long groupId, int start, int end) {
+
+		return _assignmentLocalService.getAssignmentsByGroupId(
+			groupId, start, end);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByGroupId(
+			long groupId, int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.training.gradebook.model.Assignment>
+					orderByComparator) {
+
+		return _assignmentLocalService.getAssignmentsByGroupId(
+			groupId, start, end, orderByComparator);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByKeywords(
+			long groupId, String keywords, int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.training.gradebook.model.Assignment>
+					orderByComparator) {
+
+		return _assignmentLocalService.getAssignmentsByKeywords(
+			groupId, keywords, start, end, orderByComparator);
+	}
+
 	/**
 	 * Returns all the assignments matching the UUID and company.
 	 *
@@ -323,6 +375,12 @@ public class AssignmentLocalServiceWrapper
 	@Override
 	public int getAssignmentsCount() {
 		return _assignmentLocalService.getAssignmentsCount();
+	}
+
+	@Override
+	public long getAssignmentsCountByKeywords(long groupId, String keywords) {
+		return _assignmentLocalService.getAssignmentsCountByKeywords(
+			groupId, keywords);
 	}
 
 	@Override
@@ -378,6 +436,18 @@ public class AssignmentLocalServiceWrapper
 		com.liferay.training.gradebook.model.Assignment assignment) {
 
 		return _assignmentLocalService.updateAssignment(assignment);
+	}
+
+	@Override
+	public com.liferay.training.gradebook.model.Assignment updateAssignment(
+			long assignmentId, java.util.Map<java.util.Locale, String> titleMap,
+			java.util.Map<java.util.Locale, String> descriptionMap,
+			java.util.Date dueDate,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assignmentLocalService.updateAssignment(
+			assignmentId, titleMap, descriptionMap, dueDate, serviceContext);
 	}
 
 	@Override
