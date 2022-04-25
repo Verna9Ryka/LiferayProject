@@ -21,5 +21,3 @@ buildscript {
 apply plugin: "net.saliman.properties"
 
 apply plugin: "com.liferay.workspace"
-
-include ':modules:backend-developer:osgi-basic-2:components-and-services-2:clock-api', ':modules:backend-developer:osgi-basic-2:components-and-services-2:clock-impl'
